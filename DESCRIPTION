@@ -1,0 +1,14 @@
+Package: Rospalloc
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.1
+Authors@R: 
+    person("Ammar", "Aziz", , "ammar.aziz@mh.org.au", role = c("aut", "cre"))
+Description: The unholy creation of ChatGPT being fed the two (awesome) python packages pango_aliasor and pango-collapse.
+License: `use_mit_license()`
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Imports:
+    jsonlite
+Suggests: 
+    testthat (>= 3.0.0)
+RoxygenNote: 7.2.3
