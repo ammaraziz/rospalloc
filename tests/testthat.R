@@ -1,4 +1,5 @@
 library(testthat)
-library(aliasollapse)
+library(rospalloc)
 
-test_check("aliasollapse")
+#test_check("rospalloc")
+test_local()

@@ -1,4 +1,4 @@
-#' Aliasor main function
+#' @export
 Aliasor <- function(alias_file=NULL) {
     if (is.null(alias_file)) {
         file <- jsonlite::fromJSON("https://raw.githubusercontent.com/cov-lineages/pango-designation/master/pango_designation/alias_key.json")
@@ -32,6 +32,7 @@ Aliasor <- function(alias_file=NULL) {
     assign("realias_dict", realias_dict, envir = .GlobalEnv)
 }
 
+#' @export
 compress <- function(name) {
     name_split <- unlist(strsplit(name, "\\."))
     levels <- length(name_split) - 1
@@ -44,6 +45,7 @@ compress <- function(name) {
     return(realias_dict[[alias]] %>% paste(., collapse = ".") %>% paste(., ending, sep = "."))
 }
 
+#' @export
 uncompress <- function(name) {
     name_split <- unlist(strsplit(name, "\\."))
     letter <- name_split[1]
@@ -57,7 +59,8 @@ uncompress <- function(name) {
         return(paste(unaliased, paste(name_split[2:length(name_split)], collapse = "."), sep = "."))
     }
 }
-    
+
+#' @export
 parent <- function(name) {
     name <- uncompress(name)
     name_split <- unlist(strsplit(name, "\\."))
@@ -66,8 +69,9 @@ parent <- function(name) {
     } else {
         return(compress(paste(name_split[1:(length(name_split) - 1)], collapse = ".")))
     } 
-    }
+}
 
+#' @export
 partial_compress <- function(name, up_to = 0, accepted_aliases = list()) {
     name_split <- unlist(strsplit(name, "\\."))
     levels <- length(name_split) - 1
