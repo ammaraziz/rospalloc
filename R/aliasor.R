@@ -42,7 +42,7 @@ compress <- function(name) {
     }
     alias <- paste(name_split[1:(3 * num_indirections + 1)], collapse = ".")
     ending <- paste(name_split[(3 * num_indirections + 2):length(name_split)], collapse = ".")
-    return(realias_dict[[alias]] %>% paste(., collapse = ".") %>% paste(., ending, sep = "."))
+    return(paste(realias_dict[[alias]], ending, collapse = ".", sep = "."))
 }
 
 #' @export
@@ -84,7 +84,7 @@ partial_compress <- function(name, up_to = 0, accepted_aliases = list()) {
             return(compress(name))
         }
         to_alias <- paste(name_split[1:(3 * up_to + 1)], collapse = ".")
-        alias <- realias_dict[[to_alias]] %>% unlist %>% paste(., collapse = ".")
+        alias <- paste(unlist(realias_dict[[to_alias]]), collapse = ".")
     }
 
     if (any(is.na(name_split[(3 * up_to + 2):length(name_split)]))) {
@@ -96,7 +96,7 @@ partial_compress <- function(name, up_to = 0, accepted_aliases = list()) {
             to_alias <- paste(name_split[1:(3 * level + 1)], collapse = ".")
             if (to_alias %in% names(realias_dict)) {
                 if (realias_dict[[to_alias]] %in% accepted_aliases) {
-                    alias <- realias_dict[[to_alias]] %>% unlist %>% paste(., collapse = ".")
+                    alias <- paste(unlist(realias_dict[[to_alias]]), collapse = ".")
                     return(paste(alias, paste(name_split[(3 * level + 2):length(name_split)], collapse = "."), sep = "."))
                 }
             }
