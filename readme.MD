@@ -8,7 +8,18 @@ Don't. Go use the python packages above. This package is experimental, written f
 
 ### Actual Usage & Installation
 
-TBA
+Install:
+```
+devtools::install_github("https://github.com/ammaraziz/rospalloc")
+```
+
+Use:
+```
+Aliasor()
+potential_parents = Collapsor(file="combined.txt")
+collapse_column(c("XBB.1.16.1", "JN.1.1.1"), potential_parents)
+[1] "XBB.1.16" "JN.1.1"
+```
 
 ### Naming
 
