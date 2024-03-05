@@ -15,9 +15,18 @@ devtools::install_github("https://github.com/ammaraziz/rospalloc")
 
 Use:
 ```
+library(rospalloc)
 Aliasor()
 potential_parents = Collapsor(file="combined.txt")
 collapse_column(c("XBB.1.16.1", "JN.1.1.1"), potential_parents)
+[1] "XBB.1.16" "JN.1.1"
+```
+
+🔥Alternative usage (R6)🔥:
+```
+library(rospalloc)
+c = CollapsorR6$new(file="combined.txt")
+c$collapse_column(c("XBB.1.16.1", "JN.1.1.1"))
 [1] "XBB.1.16" "JN.1.1"
 ```
 

@@ -1,9 +1,10 @@
+#' collapse a single lineage
+#' @export
 AliasorR6 <- R6::R6Class(
     "Aliasor",
-     public = list(
+    public = list(
          alias_dict = NULL,
          realias_dict = NULL,
-         
          initialize = function(alias_file = NULL) {
              if (is.null(alias_file)) {
                  file <- jsonlite::fromJSON("https://raw.githubusercontent.com/cov-lineages/pango-designation/master/pango_designation/alias_key.json")
