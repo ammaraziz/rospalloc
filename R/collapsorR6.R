@@ -1,6 +1,6 @@
 #' collapse a single lineage
 #' @export
-CollapsorR6 <- R6Class(
+CollapsorR6 <- R6::R6Class(
     "Collapsor",
     inherit = AliasorR6,
     public = list(
